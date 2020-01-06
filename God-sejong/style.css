@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+}
+
+#content {
+    width: 700px;
+    margin: 0 auto;
+}
+
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 97%;
+    min-height: 200px;
+    resize: auto;
+}
+
+.buttons {
+    border: 1px solid rgb(73, 73, 73);
+    border-radius: 5px;
+    padding: 9px 12px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    #content {
+        width: 97%;
+    }
+}

@@ -2,10 +2,32 @@
 <html>
 <head>
     <title>갓종대왕</title>
+    <meta name="description" content="Convert Korean article into unreadable but Koreans">
+    <meta name="keywords" content="text,convert,Korean,review,hangul,online,tool">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta name="robots" content="index">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script defer src="process-hangul.js"></script>
+    <script defer src="cambridge.js"></script>
+    <script defer src="mainscript.js"></script>
+
 </head>
 <body>
 <h1>갓종대왕</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<p>multiple</p>
+<div id="content">
+    <p>리뷰 강요, 가짜 리뷰에 지치셨나요?</p>
+    <p>한국인만 읽을 수 있는 갓종대왕 번역을 사용해보세요!</p>
+
+    <h2>번역할 텍스트</h2>
+    <p>Write or paste your Korean text</p>
+    <p><textarea id="input-area">이 집은 아늑하지도 않고 엄청더럽네요 추천하지 않습니다</textarea></p>
+    <input type="button" id="convert_button" class="buttons" onclick="convert_text()" value="Convert!">
+    <h2>Unreadable Korean</h2>
+    <p>Paste converted text onto review content</p>
+    <p><textarea id="output-area"></textarea></p>
+    <input type="button" id="copy_button" class="buttons" onclick="copy_to_clipboard()" value="Copy to Clipboard">
+</div>
+
 </body>
 </html>
