@@ -12,7 +12,16 @@ function convert_text(){
 }
 
 function copy_to_clipboard(){
-    console.log('copy')
+    document.getElementById('output-area').select()
+    document.execCommand('copy')
+    document.getSelection().removeAllRanges()
+
+}
+
+function translate(){
+    var text = document.getElementById('output-area').value
+    var encoded = encodeURI(text)
+    window.open('https://translate.google.com/?sl=ko&tl=en&text=' + text)
 }
 
 function convert_sentence(){
@@ -23,8 +32,3 @@ function convert_word(){    //save punctuations and only call hangul
 
 }
 
-function translate(){
-    var text = document.getElementById('output-area').value
-    var encoded = encodeURI(text)
-    window.open('https://translate.google.com/?sl=ko&tl=en&text=' + text)
-}
