@@ -12,6 +12,11 @@
     opacity: 50%;
 } */
 
+body {
+    display: block;
+}
+
+
 h1 {
     text-align: center;
 }
@@ -59,8 +64,18 @@ textarea {
 
 
 
-@media (orientation:portrait) {
+@media screen and (max-width: 830px) {
+    body {
+        font-size: 21px;
+    }
+
     #content {
-        width: 97%;
+        width: auto;
+    }
+
+    textarea {
+        font-size: 21px;
     }
 }
+
+

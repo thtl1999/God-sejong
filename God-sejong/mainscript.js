@@ -22,3 +22,9 @@ function convert_sentence(){
 function convert_word(){    //save punctuations and only call hangul
 
 }
+
+function translate(){
+    var text = document.getElementById('output-area').value
+    var encoded = encodeURI(text)
+    window.open('https://translate.google.com/?sl=ko&tl=en&text=' + text)
+}
