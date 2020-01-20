@@ -23,14 +23,22 @@ shiftkey_dic = [
     }
 ]
 
-function shiftkey(hangul){
-    var cjj = disassemble_hangul(hangul)
-    for(var i=0;i<3;i++){
-        if (cjj[i] in shiftkey_dic[i])
-            cjj[i] = shiftkey_dic[i][cjj[i]]
-    }
+function shiftkey(word){
+    console.log(word)
+    var new_word = ''
+    for(var i=0;i<word.length;i++){
+        var hangul = word[i]
+        var cjj = disassemble_hangul(hangul)
+        for(var j=0;j<3;j++){
+            if (cjj[j] && cjj[j] in shiftkey_dic[j]){
+                cjj[j] = shiftkey_dic[j][cjj[j]]
+            }
+        }
 
-    return cjj
+        new_word += assemble_hangul(cjj)
+    }
+    console.log(new_word)
+    return new_word
 }
 
 function shift_test(str){

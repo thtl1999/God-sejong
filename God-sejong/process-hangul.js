@@ -10,6 +10,15 @@ function is_hangul(hangul){
     return false;
 }
 
+function is_word_hangul(word){
+    for(var i=0;i<word.length;i++){
+        if (is_hangul(word[i]) == false)
+            return false
+    }
+
+    return true
+}
+
 function disassemble_hangul(hangul){
     if (chosung.includes(hangul))
         return [hangul, -1, 0]
