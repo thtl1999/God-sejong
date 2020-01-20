@@ -41,11 +41,10 @@ function convert_text(){
 
     //import engines
     var engines = []
-    var engine_list = document.getElementsByClassName('options')
+    var engine_list = document.getElementsByClassName('engines')
     for (let engine of engine_list){
-        var iele = engine.childNodes[0]
-        if (iele.checked)
-            engines.push(window[iele.id])
+        if (engine.checked)
+            engines.push(window[engine.id])
     }
     console.log(engines)
     if (engines.length === 0){
@@ -99,9 +98,39 @@ function convert_sentence(sentence, engine){
 }
 
 function convert_word(word, engine){    //save punctuations and only call hangul
-    if (is_word_hangul(word))
-        return engine(word)
-    else
-        return word
+    var new_word = []
+    var index = 0
+
+    for(var i=0;i<word.length;i++){
+        if (is_hangul(word[i])){
+            if (!new_word[index])
+                new_word.push(word[i])
+            else
+                new_word[index] += word[i]
+        }
+        else{
+            index++
+            new_word.push(word[i])
+            index++
+        }
+    }
+    
+    for(var i=0;i<new_word.length;i++){
+        if (is_word_hangul(new_word[i])){
+            new_word[i] = engine(new_word[i])
+        }
+    }
+
+    return new_word.join('')
+    // if (is_word_hangul(word))
+    //     return engine(word)
+    // else
+    //     return word
 }
 
+
+/* note */
+/*
+숫자를 한글로 바꾸기?
+
+*/

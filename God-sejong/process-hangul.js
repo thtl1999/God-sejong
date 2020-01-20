@@ -11,6 +11,10 @@ function is_hangul(hangul){
 }
 
 function is_word_hangul(word){
+    if (word === undefined){
+        console.log('This word is undefined')
+        return false
+    }
     for(var i=0;i<word.length;i++){
         if (is_hangul(word[i]) == false)
             return false
