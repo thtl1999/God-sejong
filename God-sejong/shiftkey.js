@@ -24,7 +24,7 @@ shiftkey_dic = [
 ]
 
 function shiftkey(word){
-    console.log(word)
+    // console.log(word)
     var new_word = ''
     for(var i=0;i<word.length;i++){
         var hangul = word[i]
@@ -37,7 +37,7 @@ function shiftkey(word){
 
         new_word += assemble_hangul(cjj)
     }
-    console.log(new_word)
+    // console.log(new_word)
     return new_word
 }
 

@@ -1,5 +1,7 @@
-punctuations = ['.', ',', '!', '?', ';']
+punctuations = ['.', ',', '!', '?', ';','\n']
 global_seed = 0.5
+
+document.getElementById('input-area').value = '요번에 오랜만에 외국여행을 친구들이랑 왔는데 여기 집주인이 아주 아니에요. 가격도 그렇게 싼 편이 아닌데 서비스가 엉망이고요, 화장실도 더럽고 우리가 뭐라 하니 화만 내네요 ㅠ.ㅠ 여기 주변 음식점도 다 맛 없고 분위기도 별로에요.\n\n여기 리뷰 잘 써주면 할인해준다고는 해서 쓰고있는데 이 리뷰 보시고 다들 잘 거르시길 바랍니다...'
 
 function convert_text(){
     console.log('convert')
@@ -32,6 +34,7 @@ function convert_text(){
         }
             
     }
+    console.log('sentence slice position')
     console.log(sentence_pos)
 
     //slice string
@@ -39,29 +42,47 @@ function convert_text(){
     for (var i=0;i<sentence_pos.length - 1;i++){
         sentences.push(input.slice(sentence_pos[i],sentence_pos[i+1]))
     }
+    console.log('sentences sliced')
     console.log(sentences)
 
     //import engines
     var engines = []
     var engine_list = document.getElementsByClassName('engines')
-    for (let engine of engine_list){
+    for (var engine of engine_list){
         if (engine.checked)
             engines.push(window[engine.id])
     }
+    console.log('main process engines checked list')
     console.log(engines)
     if (engines.length === 0){
         alert('Please check engines')
         return
     }
 
+    //main processing
     var sequence = randomize(sentences.length, engines)
+    console.log('list of engines to be applied')
     console.log(sequence)
     var new_sentence = ''
     for(var i=0;i<sentences.length;i++){
         new_sentence += convert_sentence(sentences[i], sequence[i])
     }
+    console.log('finished main processing')
     console.log(new_sentence)
+
+    //post processing
+    var p_engines = []
+    var p_engine_list = document.getElementsByClassName('post-engines')
+    for (var engine of p_engine_list){
+        if (engine.checked)
+            p_engines.push(window[engine.id])
+    }
+
+    for (var i=0;i<p_engines.length;i++){
+        new_sentence = p_engines[i](new_sentence)
+    }
     
+    //display to html
     document.getElementById('output-area').value = new_sentence
 }
 

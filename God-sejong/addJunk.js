@@ -3,7 +3,7 @@ function addJunk(word){
         return word
     
     var junk_list = [
-        '여행', '외국', '체험', '신기'
+        '여행', '체험', '뚜껑'
     ]
 
 
