@@ -1,7 +1,9 @@
 punctuations = ['.', ',', '!', '?', ';']
+global_seed = 0.5
 
 function convert_text(){
     console.log('convert')
+    global_seed = Math.random()
     var input = document.getElementById('input-area').value
     var sentence_pos = [0]
     // var strings = input.split(' ')
