@@ -47,7 +47,6 @@ yamin_dic_match = {
 }
 
 function yamin(word){
-    // console.log(word)
     var new_word = ''
 
     for(var i=0;i<word.length;i++){

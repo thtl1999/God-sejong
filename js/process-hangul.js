@@ -34,7 +34,6 @@ function disassemble_hangul(hangul){
     var jung = jungsung[Math.floor(charcode / 28 % 21)]
     var jong = jongsung[Math.floor(charcode % 28)]
 
-    // console.log([cho, jung, jong])
     return [cho, jung, jong]
 }
 
@@ -61,10 +60,4 @@ function hangul_test(str){
         else
             txt += arr[i]
     }
-
-    console.log(txt)
-    if (str === txt)
-        console.log('same')
-    else
-        console.log('not same')
 }
